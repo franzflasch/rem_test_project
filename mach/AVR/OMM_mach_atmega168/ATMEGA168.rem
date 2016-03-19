@@ -1,0 +1,4 @@
+sw_package.set_src("src/OMM_mach_atmega168.c")
+sw_package.set_arch("avr")
+sw_package.set_mach("atmega168")
+sw_package.set_dep("openmicromake gpio_common")

@@ -1,0 +1,6 @@
+sw_package.set_src("src/OMM_mach_stm32f3_opencm3.c")
+sw_package.set_dep("libopencm3 openmicromake gpio_common")
+sw_package.set_arch("arm")
+sw_package.set_mach("stm32f3")
+
+#sw_package.defs.push("STM32F3")
