@@ -2,6 +2,8 @@
 #include <OMM_machine_common.h>
 #include <gpio_common.h>
 #include <cordic.h>
+#include <stdio.h>
+
 
 int __attribute__((weak)) main (void)
 {

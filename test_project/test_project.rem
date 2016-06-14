@@ -1,42 +1,5 @@
-# PKG_NAME := test_project
-
-# PKG_DEPS := omm_common
-# PKG_DEPS += gpio_common
-# PKG_DEPS += cordic
-
-# ifeq ($(MACH),stm32f1)
-# PKG_DEPS += mach_stm32f1
-# PKG_DEPS += mach_stm32_common
-# endif
-
-# ifeq ($(MACH),stm32f40x)
-# PKG_DEPS += mach_stm32f4
-# PKG_DEPS += mach_stm32_common
-# endif
-
-# ifeq ($(MACH),stm32f3)
-# PKG_DEPS += mach_stm32f3
-# PKG_DEPS += mach_stm32_common
-# endif
-
-# ifeq ($(MACH),atmega8)
-# PKG_DEPS += mach_atmega8
-# PKG_DEPS += mach_avr_common
-# endif
-
-# ifeq ($(MACH),atmega168)
-# PKG_DEPS += mach_atmega168
-# PKG_DEPS += mach_avr_common
-# endif
-
-#PKG_SRC := src/blinky.c
-
-#include scripts/OMM_package_rules.mk
-
-#$(eval $(call Package/Setup,$(PKG_NAME)))
-
 sw_package.set_src("src/blinky.c")
-sw_package.set_dep("openmicromake gpio_common i2c_common cordic")
+sw_package.set_dep("openmicromake gpio_common cordic")
 
 if global_config.get_mach() == "atmega168"
 	sw_package.set_dep("ATMEGA168 OMM_mach_avr8_common")
@@ -58,4 +21,8 @@ if global_config.get_mach() == "stm32f4"
 	sw_package.set_dep("STM32F4 OMM_mach_stm32_common")
 	sw_package.set_global_define("STM32F4")
 	#sw_package.set_def("STM32F3")
+end
+
+if global_config.get_mach() == "linux"
+	sw_package.set_dep("mach_linux")
 end

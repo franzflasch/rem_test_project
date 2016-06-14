@@ -75,7 +75,7 @@ OMM_machine_t __attribute__((weak)) *machine_setup(void)
 	};
 
 	GPIO_DRV_setup();
-	GPIO_init_controller(&gpio, ACTIVE_HIGH, 1, MACH_GPIO_set, NULL);
+	GPIO_init_controller(&gpio, ACTIVE_HIGH, 1, MACH_GPIO_set, NULL, NULL);
 
 	machine.pdev_list = &pdevs[0];
 
