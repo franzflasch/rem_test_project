@@ -1,0 +1,5 @@
+sw_package.set_src("src/mach_linux.c")
+sw_package.set_dep("openmicromake gpio_common")
+sw_package.set_arch("native")
+sw_package.set_mach("linux")
+sw_package.set_dep("drv_core soft_spi")
