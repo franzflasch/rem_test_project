@@ -13,7 +13,6 @@ int main (void)
 	gpio_controller_t *gpio = NULL;
 
 	OMM_machine_t *machine = machine_setup();
-	OMM_platform_devices *pdevs = NULL;
 
 	gpio = OMM_get_pdev_by_name(machine, "gpio_0");
 	//gpio = OMM_get_pdev_by_index(machine, 0);
