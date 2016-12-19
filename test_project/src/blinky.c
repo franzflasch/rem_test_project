@@ -5,17 +5,18 @@
 #include <stdio.h>
 
 
-int __attribute__((weak)) main (void)
+int main (void)
 {
+	int sin = 0;
+	int cos = 0;
 	uint8_t gpio_val = 0;
-	gpio_controller_t *gpio;
+	gpio_controller_t *gpio = NULL;
 
 	OMM_machine_t *machine = machine_setup();
+	OMM_platform_devices *pdevs = NULL;
 
 	gpio = OMM_get_pdev_by_name(machine, "gpio_0");
-
-	int sin;
-	int cos;
+	//gpio = OMM_get_pdev_by_index(machine, 0);
 	cordic_sincos(3, 10, &sin, &cos);
 
     while (1)

@@ -1,6 +1,10 @@
 sw_package.set_src("src/blinky.c")
 sw_package.set_dep("openmicromake gpio_common cordic")
 
+if global_config.get_mach() == "nrf24le1_32"
+	sw_package.set_dep("mach_nrf24le1_32")
+end
+
 if global_config.get_mach() == "atmega168"
 	sw_package.set_dep("ATMEGA168 OMM_mach_avr8_common")
 	sw_package.set_global_define("F_CPU=8000000")

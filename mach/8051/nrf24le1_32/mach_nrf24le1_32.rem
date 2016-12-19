@@ -1,0 +1,4 @@
+sw_package.set_src("src/mach_nrf24le1_32.c")
+sw_package.set_arch("8051")
+sw_package.set_mach("nrf24le1_32")
+sw_package.set_dep("openmicromake gpio_common nrf24le1_sdk")
