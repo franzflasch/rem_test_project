@@ -1,0 +1,4 @@
+sw_package.set_src("pic32mz2048.c")
+sw_package.set_dep("libopenpic32 openmicromake gpio_common")
+sw_package.set_arch("mips")
+sw_package.set_mach("pic32mz2048")

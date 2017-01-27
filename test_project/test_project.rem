@@ -31,6 +31,10 @@ if global_config.get_mach() == "pic32mx2"
 	sw_package.set_dep("pic32mx2")
 end
 
+if global_config.get_mach() == "pic32mz2048"
+	sw_package.set_dep("pic32mz2048")
+end
+
 if global_config.get_mach() == "linux"
 	sw_package.set_dep("mach_linux")
 end
