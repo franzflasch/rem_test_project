@@ -10,19 +10,16 @@
 #include <OMM_machine_common.h>
 #include <gpio_common.h>
 #include <unistd.h>
-#include <drv_core.h>
 
 void OMM_busy_delay(uint32_t val)
 {
 	usleep(val*1000);
 }
 
-
 static void linux_gpio_set(gpio_controller_t *gpio, uint8_t pin, uint8_t val)
 {
 	printf("Setting gpio %d to %d\n", pin, val);
 }
-
 
 OMM_machine_t __attribute__((weak)) *machine_setup(void)
 {
@@ -37,8 +34,6 @@ OMM_machine_t __attribute__((weak)) *machine_setup(void)
 			{"gpio_0", &gpio },
 			{NULL, NULL}
 	};
-
-	print_registered_drivers();
 
 	GPIO_init_controller(&gpio, ACTIVE_HIGH, 1, linux_gpio_set, NULL, NULL);
 
