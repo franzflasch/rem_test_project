@@ -35,6 +35,10 @@ if global_config.get_mach() == "pic32mz2048"
 	sw_package.set_dep("pic32mz2048")
 end
 
+if global_config.get_mach() == "nrf51822"
+	sw_package.set_dep("MACH_NRF51822 nrf5_sdk")
+end
+
 if global_config.get_mach() == "linux"
 	sw_package.set_dep("mach_linux")
 end

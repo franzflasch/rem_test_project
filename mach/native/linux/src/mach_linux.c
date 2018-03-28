@@ -12,7 +12,7 @@
 #include <unistd.h>
 #include <drv_core.h>
 
-void OMM_busy_delay(uint64_t val)
+void OMM_busy_delay(uint32_t val)
 {
 	usleep(val*1000);
 }

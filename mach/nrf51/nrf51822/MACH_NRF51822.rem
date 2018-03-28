@@ -1,0 +1,4 @@
+sw_package.set_src("src/nrf51822.c")
+sw_package.set_dep("nrf5_sdk openmicromake gpio_common")
+sw_package.set_arch("arm")
+sw_package.set_mach("nrf51822")
