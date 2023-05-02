@@ -15,7 +15,7 @@
 /* Set STM32 to 24 MHz. */
 static void MACH_STM32F1_clock_setup(void)
 {
-	rcc_clock_setup_in_hse_8mhz_out_24mhz();
+	rcc_clock_setup_pll(&rcc_hse_configs[RCC_CLOCK_HSE8_24MHZ]);
 }
 
 static void MACH_STM32F1_gpio_setup(void)
@@ -26,6 +26,7 @@ static void MACH_STM32F1_gpio_setup(void)
 	/* Set GPIO8/9 (in GPIO port C) to 'output push-pull'. */
 	gpio_set_mode(GPIOC, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_PUSHPULL, GPIO8);
 	gpio_set_mode(GPIOC, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_PUSHPULL, GPIO9);
+	gpio_set_mode(GPIOC, GPIO_MODE_OUTPUT_50_MHZ, GPIO_CNF_OUTPUT_PUSHPULL, GPIO12);
 }
 
 static void set_gpio(uint8_t pin, uint8_t val)
@@ -43,6 +44,12 @@ static void set_gpio(uint8_t pin, uint8_t val)
 				gpio_set(GPIOC, GPIO9);
 			else if (val == GPIO_COMMON_LOW)
 				gpio_clear(GPIOC, GPIO9);
+			break;
+		case 2:
+			if(val == GPIO_COMMON_HIGH)
+				gpio_set(GPIOC, GPIO12);
+			else if (val == GPIO_COMMON_LOW)
+				gpio_clear(GPIOC, GPIO12);
 			break;
 		default:
 			break;
